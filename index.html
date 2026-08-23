@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti ❤️</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f8c8dc;
+        font-family: Georgia, "Times New Roman", serif;
+    }
+
+    /* Fondo */
+    .background {
+        position: fixed;
+        inset: 0;
+        background:
+            radial-gradient(circle at 20% 20%, rgba(255,255,255,.7), transparent 25%),
+            radial-gradient(circle at 80% 80%, rgba(255,255,255,.5), transparent 30%),
+            #f8c8dc;
+    }
+
+    /* Pequeñas flores decorativas */
+    .petal {
+        position: fixed;
+        font-size: 22px;
+        opacity: .35;
+        animation: float 6s ease-in-out infinite;
+        pointer-events: none;
+    }
+
+    .p1 { top: 12%; left: 12%; }
+    .p2 { top: 75%; left: 8%; animation-delay: 1s; }
+    .p3 { top: 18%; right: 12%; animation-delay: 2s; }
+    .p4 { bottom: 10%; right: 12%; animation-delay: 3s; }
+
+    @keyframes float {
+        0%,100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-15px) rotate(8deg); }
+    }
+
+    /* SOBRE */
+    .envelope-container {
+        position: relative;
+        z-index: 5;
+        cursor: pointer;
+        transition: transform .4s ease, opacity .5s ease;
+    }
+
+    .envelope-container:hover {
+        transform: scale(1.05);
+    }
+
+    .envelope {
+        width: 300px;
+        height: 200px;
+        position: relative;
+        background: #fff8ef;
+        border-radius: 8px;
+        box-shadow: 0 20px 50px rgba(100,40,60,.25);
+    }
+
+    /* Solapa */
+    .flap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 150px solid transparent;
+        border-right: 150px solid transparent;
+        border-top: 110px solid #f2b5cc;
+        transform-origin: top;
+        transition: transform .8s ease;
+        z-index: 3;
+    }
+
+    /* Parte inferior del sobre */
+    .envelope::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border-left: 150px solid transparent;
+        border-right: 150px solid #f7d6e2;
+        border-top: 100px solid transparent;
+        border-bottom: 100px solid transparent;
+        z-index: 2;
+    }
+
+    .envelope::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        border-right: 150px solid transparent;
+        border-left: 150px solid #f7c7d9;
+        border-top: 100px solid transparent;
+        border-bottom: 100px solid transparent;
+        z-index: 2;
+    }
+
+    /* Sello */
+    .seal {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        background: #d889a7;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 25px;
+        z-index: 6;
+        box-shadow: 0 5px 12px rgba(100,40,60,.25);
+    }
+
+    .click-text {
+        text-align: center;
+        margin-top: 25px;
+        color: #713d52;
+        font-size: 17px;
+        letter-spacing: .5px;
+    }
+
+    /* CARTA */
+    .letter {
+        position: fixed;
+        z-index: 10;
+        width: min(90%, 600px);
+        max-height: 85vh;
+        overflow-y: auto;
+        padding: 45px;
+        background: #fffaf3;
+        border-radius: 6px;
+        box-shadow: 0 25px 70px rgba(80,30,50,.3);
+        opacity: 0;
+        transform: scale(.7) translateY(40px);
+        pointer-events: none;
+        transition: opacity .7s ease, transform .7s ease;
+        text-align: center;
+    }
+
+    .letter.show {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        pointer-events: auto;
+    }
+
+    .letter h1 {
+        color: #a65b77;
+        font-size: 30px;
+        margin-top: 0;
+    }
+
+    .letter p {
+        color: #593d47;
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
+    /* FLOR */
+    .flower {
+        margin: 25px auto 10px;
+        width: 110px;
+        height: 110px;
+        position: relative;
+        cursor: pointer;
+        transition: transform .4s ease;
+    }
+
+    .flower:hover {
+        transform: scale(1.12);
+    }
+
+    .petal-flower {
+        position: absolute;
+        width: 48px;
+        height: 65px;
+        background: #d94f78;
+        border-radius: 50% 50% 45% 45%;
+        left: 31px;
+        top: 5px;
+        transform-origin: 50% 100%;
+    }
+
+    .pf1 { transform: rotate(0deg) translateY(-12px); }
+    .pf2 { transform: rotate(72deg) translateY(-12px); }
+    .pf3 { transform: rotate(144deg) translateY(-12px); }
+    .pf4 { transform: rotate(216deg) translateY(-12px); }
+    .pf5 { transform: rotate(288deg) translateY(-12px); }
+
+    .flower-center {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        background: #e9b44c;
+        border-radius: 50%;
+        left: 39px;
+        top: 39px;
+        z-index: 2;
+    }
+
+    .flower-message {
+        color: #a65b77;
+        font-style: italic;
+        font-size: 16px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    /* Animación al abrir */
+    .envelope.open {
+        opacity: 0;
+        transform: scale(.8);
+        pointer-events: none;
+    }
+
+    .envelope.open .flap {
+        transform: rotateX(180deg);
+    }
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="petal p1">🌸</div>
+<div class="petal p2">🌷</div>
+<div class="petal p3">🌸</div>
+<div class="petal p4">🌷</div>
+
+<!-- SOBRE -->
+<div class="envelope-container" id="envelopeContainer" onclick="openLetter()">
+
+    <div class="envelope" id="envelope">
+        <div class="flap"></div>
+        <div class="seal">♥</div>
+    </div>
+
+    <div class="click-text">
+        Haz clic para abrir 💌
+    </div>
+
+</div>
+
+<!-- CARTA -->
+<div class="letter" id="letter">
+
+    <h1>Para ti ❤️</h1>
+
+    <p>
+        Hoy es el Día del Libro y me dio un poquito de pena
+        que solo tú fueras a regalarme algo...
+        así que decidí hacerte un pequeño detalle.
+    </p>
+
+    <p>
+        Antes de llegar a tu regalo, quiero invitarte a recorrer
+        un pedacito de nuestra historia.
+    </p>
+
+    <p>
+        Cada página guarda un recuerdo, una sorpresa
+        o un detalle pensado especialmente para ti.
+    </p>
+
+    <p>
+        Espero que te guste. ❤️
+    </p>
+
+    <!-- FLOR -->
+    <div class="flower" onclick="goToMap(event)">
+        <div class="petal-flower pf1"></div>
+        <div class="petal-flower pf2"></div>
+        <div class="petal-flower pf3"></div>
+        <div class="petal-flower pf4"></div>
+        <div class="petal-flower pf5"></div>
+        <div class="flower-center"></div>
+    </div>
+
+    <div class="flower-message">
+        Haz clic en la flor para comenzar 🌹
+    </div>
+
+</div>
+
+<script>
+
+function openLetter() {
+
+    document.getElementById("envelope").classList.add("open");
+
+    setTimeout(() => {
+        document.getElementById("letter").classList.add("show");
+    }, 600);
+}
+
+function goToMap(event) {
+
+    event.stopPropagation();
+
+    /*
+       Por ahora mostramos un mensaje.
+       Después sustituiremos esto por la escena del mapa.
+    */
+
+    alert("🌹 Aquí comenzará el mapa de vuestra historia.");
+
+}
+
+</script>
+
+</body>
+</html>
