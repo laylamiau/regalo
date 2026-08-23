@@ -6,7 +6,7 @@
 <title>Para ti ❤️</title>
 <style>
 *{box-sizing:border-box}
-:root{--pink:#f8c8dc;--deep:#a65b77;--ink:#593d47;--paper:#fffaf3;--gold:#e9b44c}
+:root{--pink:#f8c8dc;--deep:#a65b77;--ink:#593d47;--paper:#fffaf3;--gold:#e9b44c;--map:#eadcc8;--mapline:#bca889;--sea:#f7e9df}
 body{margin:0;min-height:100vh;overflow:hidden;font-family:Georgia,"Times New Roman",serif;background:var(--pink)}
 .background,.scene{position:fixed;inset:0}
 .background{background:radial-gradient(circle at 20% 20%,rgba(255,255,255,.75),transparent 25%),radial-gradient(circle at 80% 80%,rgba(255,255,255,.55),transparent 30%),var(--pink)}
@@ -23,28 +23,41 @@ body{margin:0;min-height:100vh;overflow:hidden;font-family:Georgia,"Times New Ro
 
 /* CARTA */
 .letter{position:fixed;z-index:10;left:50%;top:50%;transform:translate(-50%,-50%) scale(.7) translateY(40px);width:min(90%,600px);padding:45px;background:var(--paper);border-radius:7px;box-shadow:0 25px 70px rgba(80,30,50,.3);opacity:0;pointer-events:none;transition:opacity .7s,transform .7s;text-align:center}.letter.show{opacity:1;transform:translate(-50%,-50%) scale(1);pointer-events:auto}.letter h1{color:var(--deep);font-size:30px;margin:0 0 25px}.letter p{color:var(--ink);font-size:19px;line-height:1.7;margin:10px 0}
-.flower{position:relative;width:125px;height:125px;margin:22px auto 3px;cursor:pointer;animation:flowerPulse 2.5s ease-in-out infinite}.flower:hover{transform:scale(1.12) rotate(2deg)}@keyframes flowerPulse{50%{transform:scale(1.06)}}
-.petal-flower{position:absolute;width:50px;height:70px;left:37px;top:5px;background:#d94f78;border-radius:50% 50% 45% 45%;transform-origin:50% 100%}.pf1{transform:rotate(0deg) translateY(-12px)}.pf2{transform:rotate(72deg) translateY(-12px)}.pf3{transform:rotate(144deg) translateY(-12px)}.pf4{transform:rotate(216deg) translateY(-12px)}.pf5{transform:rotate(288deg) translateY(-12px)}.flower-center{position:absolute;width:34px;height:34px;left:45px;top:45px;background:var(--gold);border-radius:50%;z-index:2;box-shadow:0 2px 5px rgba(0,0,0,.15)}.click-flower{color:var(--deep);font-size:17px;font-style:italic}
+.flower{position:relative;width:125px;height:125px;margin:26px auto 16px;cursor:pointer;animation:flowerPulse 2.5s ease-in-out infinite}.flower:hover{transform:scale(1.12) rotate(2deg)}@keyframes flowerPulse{50%{transform:scale(1.06)}}
+.petal-flower{position:absolute;width:50px;height:70px;left:37px;top:5px;background:#d94f78;border-radius:50% 50% 45% 45%;transform-origin:50% 100%}.pf1{transform:rotate(0deg) translateY(-12px)}.pf2{transform:rotate(72deg) translateY(-12px)}.pf3{transform:rotate(144deg) translateY(-12px)}.pf4{transform:rotate(216deg) translateY(-12px)}.pf5{transform:rotate(288deg) translateY(-12px)}.flower-center{position:absolute;width:34px;height:34px;left:45px;top:45px;background:var(--gold);border-radius:50%;z-index:2;box-shadow:0 2px 5px rgba(0,0,0,.15)}.click-flower{color:var(--deep);font-size:17px;font-style:italic;margin-top:4px}
 
 /* MAPA */
 .map-scene{z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:25px;background:radial-gradient(circle at 20% 20%,rgba(255,255,255,.8),transparent 28%),var(--pink);opacity:0;pointer-events:none;transform:scale(.96);transition:opacity .8s,transform .8s}.map-scene.show{opacity:1;pointer-events:auto;transform:scale(1)}
 .map-quote{max-width:760px;text-align:center;color:#8e5069;font-size:25px;line-height:1.5;margin-bottom:22px}
-.map-wrapper{position:relative;width:min(92vw,900px);height:min(65vh,560px);background:#f6eadb;border-radius:30px;overflow:hidden;border:5px solid var(--paper);box-shadow:0 25px 70px rgba(100,40,60,.2)}
-.map-wrapper:before{content:"";position:absolute;inset:0;opacity:.18;background-image:radial-gradient(#cdb99d 1px,transparent 1px);background-size:18px 18px;z-index:1}
-.europe-map{position:absolute;width:100%;height:100%;z-index:2}.land{fill:#dfcdae;stroke:#bfa886;stroke-width:2;stroke-linejoin:round;opacity:.92}
-.connection{position:absolute;z-index:6;left:29%;top:52%;width:135px;border-top:2px dashed #c58ba1;transform:rotate(-57deg);opacity:.7}
-.map-pin{position:absolute;z-index:10;width:44px;height:44px;border:0;background:transparent;cursor:pointer;display:grid;place-items:center;font-size:34px;transition:transform .25s}.map-pin:hover,.map-pin:focus-visible{transform:scale(1.18) translateY(-4px);outline:none}.map-pin:after{content:"";position:absolute;width:12px;height:12px;background:rgba(190,90,120,.28);border-radius:50%;bottom:0;left:50%;transform:translateX(-50%);animation:pinPulse 2s infinite}@keyframes pinPulse{50%{transform:translateX(-50%) scale(1.7);opacity:.05}}
-.spain-pin{left:27%;top:64%}.lux-pin{left:43%;top:37%}
+.map-wrapper{position:relative;width:min(92vw,920px);height:min(65vh,570px);background:linear-gradient(180deg,#f9eee7 0%,var(--sea) 100%);border-radius:34px;overflow:hidden;border:5px solid var(--paper);box-shadow:0 25px 70px rgba(100,40,60,.2)}
+.map-wrapper:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 22%,rgba(255,255,255,.7),transparent 18%),radial-gradient(circle at 82% 70%,rgba(255,255,255,.45),transparent 22%);z-index:1;pointer-events:none}
+.map-wrapper:after{content:"〰 〰 〰      〰 〰       〰 〰 〰";position:absolute;left:5%;right:5%;bottom:7%;color:rgba(174,135,141,.20);font-size:32px;letter-spacing:16px;white-space:nowrap;z-index:1;overflow:hidden}
+.europe-map{position:absolute;inset:3% 4% 5%;width:92%;height:92%;z-index:2;filter:drop-shadow(0 8px 4px rgba(119,91,65,.08))}.land{fill:var(--map);stroke:var(--mapline);stroke-width:2.4;stroke-linejoin:round;stroke-linecap:round}.island{fill:#eadcc8;stroke:#bca889;stroke-width:2}.coast-detail{fill:none;stroke:#cdb99d;stroke-width:1.3;stroke-dasharray:3 6;opacity:.6}
+.map-doodle{position:absolute;z-index:3;color:rgba(142,80,105,.28);font-size:24px;pointer-events:none}.cloud-a{left:8%;top:11%}.cloud-b{right:9%;top:17%}.compass{right:7%;bottom:10%;font-size:34px;transform:rotate(-8deg)}
 
-/* POLAROID FLOTANTE. Aquí pondremos las fotos reales después. */
+.route-line{position:absolute;z-index:6;left:25.5%;top:62%;width:212px;height:2px;border-top:2px dashed rgba(197,139,161,.9);transform-origin:left center;transform:rotate(-51deg)}
+.route-line:after{content:"";position:absolute;left:0;right:0;top:-5px;height:10px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);opacity:.4}
+.map-pin{position:absolute;z-index:10;width:46px;height:46px;border:0;background:transparent;cursor:pointer;display:grid;place-items:center;font-size:35px;transition:transform .25s;filter:drop-shadow(0 5px 4px rgba(120,60,80,.18))}.map-pin:hover,.map-pin:focus-visible{transform:scale(1.18) translateY(-4px);outline:none}.map-pin:after{content:"";position:absolute;width:13px;height:13px;background:rgba(190,90,120,.28);border-radius:50%;bottom:0;left:50%;transform:translateX(-50%);animation:pinPulse 2s infinite}@keyframes pinPulse{50%{transform:translateX(-50%) scale(1.8);opacity:.04}}
+/* España: zona norte, cerca de Vitoria-Gasteiz */
+.spain-pin{left:25%;top:62%}
+/* Luxemburgo: entre Bélgica/Francia/Alemania */
+.lux-pin{left:46.5%;top:38.5%}
+
+/* CORAZÓN EN MEDIO DE LA DISTANCIA */
+.route-heart{position:absolute;z-index:18;left:35.8%;top:49.4%;width:58px;height:58px;border:0;background:#fffaf3;border-radius:50%;display:grid;place-items:center;font-size:30px;cursor:pointer;box-shadow:0 9px 25px rgba(126,67,91,.22);transition:transform .25s,box-shadow .25s;animation:heartBeat 2.2s ease-in-out infinite}.route-heart:hover,.route-heart:focus-visible{transform:scale(1.12);box-shadow:0 12px 30px rgba(126,67,91,.32);outline:none}@keyframes heartBeat{0%,100%{scale:1}45%{scale:1.06}55%{scale:1}}
+.route-heart:after{content:"siguiente";position:absolute;top:64px;color:#9f637a;font-family:Georgia,"Times New Roman",serif;font-size:12px;font-style:italic;opacity:0;transition:.2s;white-space:nowrap}.route-heart:hover:after,.route-heart:focus-visible:after{opacity:1}
+
+/* POLAROID FLOTANTE */
 .pin-preview{position:absolute;z-index:30;width:190px;padding:11px 11px 15px;background:#fffdf7;border:1px solid rgba(166,91,119,.18);box-shadow:0 14px 35px rgba(80,30,50,.22);border-radius:7px;opacity:0;transform:translateY(8px) rotate(-2deg) scale(.96);pointer-events:none;transition:opacity .22s,transform .22s;text-align:center}.pin-preview.show{opacity:1;transform:translateY(0) rotate(-2deg) scale(1)}.pin-preview.lux-preview{transform:translateY(8px) rotate(2deg) scale(.96)}.pin-preview.lux-preview.show{transform:translateY(0) rotate(2deg) scale(1)}
-.preview-photo{width:100%;aspect-ratio:4/3;border-radius:4px;background:linear-gradient(135deg,#f4d6e2,#fff5f8);display:grid;place-items:center;color:#a65b77;font-size:42px;overflow:hidden}.preview-photo img{width:100%;height:100%;object-fit:cover}.preview-country{margin-top:9px;color:#8e5069;font-size:15px;font-weight:bold}.spain-preview{left:31%;top:48%}.lux-preview{left:47%;top:20%}
-.map-heart{text-align:center;margin-top:16px;color:var(--deep)}
+.preview-photo{width:100%;aspect-ratio:4/3;border-radius:4px;background:linear-gradient(135deg,#f4d6e2,#fff5f8);display:grid;place-items:center;color:#a65b77;font-size:42px;overflow:hidden}.preview-photo img{width:100%;height:100%;object-fit:cover}.preview-country{margin-top:9px;color:#8e5069;font-size:15px;font-weight:bold}.spain-preview{left:29%;top:46%}.lux-preview{left:50%;top:18%}
+
+/* SIGUIENTE ESCENA */
+.next-scene{z-index:25;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 70% 20%,rgba(255,255,255,.65),transparent 25%),var(--pink);opacity:0;pointer-events:none;transform:translateY(18px);transition:opacity .7s,transform .7s}.next-scene.show{opacity:1;pointer-events:auto;transform:translateY(0)}.next-card{width:min(88vw,560px);padding:42px;background:var(--paper);border-radius:24px;text-align:center;box-shadow:0 22px 60px rgba(100,40,60,.22)}.next-card .tiny{color:#b57a91;font-style:italic;margin-bottom:10px}.next-card h2{margin:0;color:var(--deep);font-size:30px}.next-card p{color:var(--ink);font-size:18px;line-height:1.6}
 
 /* MÓVIL: tarjeta central al tocar */
 .mobile-card{position:fixed;z-index:50;left:50%;top:50%;transform:translate(-50%,-50%) scale(.9);width:min(86vw,330px);padding:14px;background:#fffdf7;border-radius:10px;box-shadow:0 25px 70px rgba(60,20,40,.3);opacity:0;pointer-events:none;transition:.25s;text-align:center}.mobile-card.show{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}.mobile-photo{width:100%;aspect-ratio:4/3;border-radius:6px;background:linear-gradient(135deg,#f4d6e2,#fff5f8);display:grid;place-items:center;color:var(--deep);font-size:48px}.mobile-card h2{margin:10px 0;color:var(--deep);font-size:20px}.close-card{padding:9px 18px;border:0;border-radius:20px;background:#e9b2c7;color:white;cursor:pointer}
 
-@media(max-width:600px){.envelope{width:260px;height:175px}.flap{border-left-width:130px;border-right-width:130px}.letter{padding:30px 22px}.letter h1{font-size:27px}.letter p{font-size:17px}.map-quote{font-size:20px;margin-bottom:15px}.map-wrapper{height:55vh;border-radius:20px}.pin-preview{display:none}.spain-pin{left:27%;top:64%}.lux-pin{left:43%;top:37%}}
+@media(max-width:600px){.envelope{width:260px;height:175px}.flap{border-left-width:130px;border-right-width:130px}.letter{padding:30px 22px}.letter h1{font-size:27px}.letter p{font-size:17px}.map-quote{font-size:19px;margin-bottom:14px}.map-wrapper{height:54vh;border-radius:22px}.pin-preview{display:none}.spain-pin{left:24%;top:63%}.lux-pin{left:46%;top:39%}.route-line{left:25%;top:63%;width:150px;transform:rotate(-54deg)}.route-heart{left:34%;top:50%;width:50px;height:50px;font-size:25px}.route-heart:after{display:none}}
 </style>
 </head>
 <body>
@@ -70,25 +83,30 @@ body{margin:0;min-height:100vh;overflow:hidden;font-family:Georgia,"Times New Ro
 <div class="scene map-scene" id="mapScene">
   <div class="map-quote">Dos personas. El mismo momento. El mismo lugar.<br>Y una historia que todavía no sabíamos que iba a empezar.</div>
   <div class="map-wrapper" id="mapWrapper">
+    <div class="map-doodle cloud-a">☁</div><div class="map-doodle cloud-b">☁</div><div class="map-doodle compass">✧</div>
+
     <svg class="europe-map" viewBox="0 0 900 560" preserveAspectRatio="xMidYMid meet" aria-label="Mapa ilustrado de Europa">
-      <path class="land" d="M240 110 C220 90 215 65 230 45 C250 25 275 40 280 65 C288 90 275 115 260 130 Z"/>
-      <path class="land" d="M205 125 C185 105 175 85 185 65 C195 45 215 55 220 80 C225 100 220 120 205 125 Z"/>
-      <path class="land" d="M135 390 C120 370 110 340 120 320 C135 300 160 295 190 300 L250 315 C270 330 275 350 265 370 L245 400 C215 415 175 420 145 410 Z"/>
-      <path class="land" d="M245 300 C250 270 265 235 290 215 C320 205 355 220 380 240 L400 280 L370 325 L335 345 L275 335 Z"/>
-      <path class="land" d="M430 305 C455 320 470 350 465 375 C460 400 480 425 505 440 C520 430 515 410 500 390 L480 355 L470 315 Z"/>
-      <path class="land" d="M395 190 C420 175 455 175 480 195 L500 240 L480 280 L440 290 L405 260 L390 220 Z"/>
-      <path class="land" d="M350 205 L375 195 L400 210 L395 235 L370 245 L350 230 Z"/>
-      <path class="land" d="M480 245 C520 225 560 230 590 255 L620 295 L600 330 L555 335 L515 315 L485 285 Z"/>
-      <path class="land" d="M600 330 C630 320 665 330 690 355 L720 390 L695 420 L650 405 L615 380 Z"/>
-      <path class="land" d="M400 70 C420 45 440 30 455 45 L465 100 L450 150 L420 175 L400 150 L410 110 Z"/>
-      <path class="land" d="M500 155 C560 120 640 130 690 170 L730 225 L710 290 L650 315 L600 290 L570 240 L520 215 Z"/>
-      <path class="land" d="M650 110 C710 70 790 75 850 110 L870 175 L820 210 L750 200 L700 170 Z"/>
+      <!-- Silueta ilustrada de Europa occidental y central -->
+      <path class="land" d="M126 388 L111 357 120 326 144 305 176 299 211 308 246 306 273 289 286 261 304 235 333 221 359 229 382 215 399 188 429 176 457 187 482 211 511 214 538 195 569 189 598 205 617 231 641 238 671 226 704 236 732 263 746 292 730 317 701 323 679 344 652 349 627 333 605 344 589 369 566 382 535 372 516 348 497 351 479 373 472 401 486 431 509 449 505 468 484 467 466 447 449 421 432 390 412 367 386 358 365 344 340 348 317 368 290 386 260 397 226 411 190 415 155 409 Z"/>
+      <!-- Escandinavia -->
+      <path class="land" d="M411 180 L398 148 407 111 424 77 443 49 462 38 477 55 480 86 470 116 461 148 443 177 Z"/>
+      <path class="land" d="M471 167 L483 135 489 102 502 74 520 60 532 78 529 108 516 141 500 168 Z"/>
+      <!-- Reino Unido e Irlanda -->
+      <path class="island" d="M270 190 L256 164 260 133 276 111 292 124 299 153 290 181 Z"/>
+      <path class="island" d="M236 195 L224 174 228 151 242 141 252 158 248 183 Z"/>
+      <!-- Sicilia / Cerdeña / Baleares -->
+      <path class="island" d="M488 470 L503 471 510 479 497 484 484 479 Z"/>
+      <ellipse class="island" cx="430" cy="406" rx="8" ry="14"/>
+      <ellipse class="island" cx="239" cy="383" rx="8" ry="5"/>
+      <!-- Líneas de dibujo internas -->
+      <path class="coast-detail" d="M155 325 Q205 345 249 323 M302 237 Q342 254 381 230 M426 190 Q458 220 504 215 M530 203 Q585 225 631 239 M318 369 Q355 357 386 359 M433 390 Q459 386 476 372"/>
     </svg>
 
-    <div class="connection"></div>
+    <div class="route-line"></div>
 
     <button class="map-pin spain-pin" id="spainPin" aria-label="España" type="button">📍</button>
     <button class="map-pin lux-pin" id="luxPin" aria-label="Luxemburgo" type="button">📍</button>
+    <button class="route-heart" id="routeHeart" aria-label="Ir a la siguiente página" type="button">💗</button>
 
     <div class="pin-preview spain-preview" id="spainPreview">
       <div class="preview-photo" id="spainPhoto">💗</div>
@@ -99,7 +117,14 @@ body{margin:0;min-height:100vh;overflow:hidden;font-family:Georgia,"Times New Ro
       <div class="preview-country">Luxemburgo</div>
     </div>
   </div>
-  <div class="map-heart">♡</div>
+</div>
+
+<div class="scene next-scene" id="nextScene">
+  <div class="next-card">
+    <div class="tiny">siguiente pedacito ♡</div>
+    <h2>Nuestras fechas</h2>
+    <p>Aquí va el calendario con el día que nos conocimos, el primer “te amo”, tu cumple bonito y todo lo que quieras añadir.</p>
+  </div>
 </div>
 
 <div class="mobile-card" id="mobileCard">
@@ -127,9 +152,8 @@ const mobileCard=document.getElementById('mobileCard');
 const mobileTitle=document.getElementById('mobileTitle');
 const mobilePhoto=document.getElementById('mobilePhoto');
 
-function showPreview(preview){ preview.classList.add('show'); }
-function hidePreview(preview){ preview.classList.remove('show'); }
-
+function showPreview(preview){preview.classList.add('show')}
+function hidePreview(preview){preview.classList.remove('show')}
 function setupPin(pin,preview,country){
   pin.addEventListener('mouseenter',()=>showPreview(preview));
   pin.addEventListener('mouseleave',()=>hidePreview(preview));
@@ -148,6 +172,12 @@ function setupPin(pin,preview,country){
 setupPin(spainPin,spainPreview,'España');
 setupPin(luxPin,luxPreview,'Luxemburgo');
 document.getElementById('closeCard').addEventListener('click',()=>mobileCard.classList.remove('show'));
+
+document.getElementById('routeHeart').addEventListener('click',()=>{
+  const map=document.getElementById('mapScene');
+  map.classList.remove('show');
+  setTimeout(()=>document.getElementById('nextScene').classList.add('show'),650);
+});
 </script>
 </body>
 </html>
