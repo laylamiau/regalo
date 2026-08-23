@@ -1,13 +1,148 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Para ti ❤️</title><style>
-*{box-sizing:border-box}:root{--p:#f8c8dc;--d:#a65b77;--i:#593d47;--paper:#fffaf3}body{margin:0;min-height:100vh;overflow:hidden;font-family:Georgia,"Times New Roman",serif;background:var(--p)}.scene{position:fixed;inset:0}.bg{position:fixed;inset:0;background:radial-gradient(circle at 20% 20%,#ffffffbd,transparent 25%),radial-gradient(circle at 80% 80%,#ffffff8c,transparent 30%),var(--p)}
-.envelope-container{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;cursor:pointer;transition:.6s}.envelope-container.open{opacity:0;transform:translate(-50%,-50%) scale(.8);pointer-events:none}.envelope{position:relative;width:300px;height:200px;background:#fff8ef;border-radius:8px;box-shadow:0 20px 50px #64283c40}.flap{position:absolute;border-left:150px solid transparent;border-right:150px solid transparent;border-top:110px solid #f2b5cc;z-index:3}.envelope:before,.envelope:after{content:"";position:absolute;bottom:0;z-index:2}.envelope:before{border-left:150px solid transparent;border-right:150px solid #f7d6e2;border-top:100px solid transparent;border-bottom:100px solid transparent}.envelope:after{right:0;border-right:150px solid transparent;border-left:150px solid #f7c7d9;border-top:100px solid transparent;border-bottom:100px solid transparent}.seal{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:55px;height:55px;border-radius:50%;background:#d889a7;color:white;display:grid;place-items:center;font-size:25px;z-index:6}.click-text{text-align:center;margin-top:25px;color:#713d52}
-.letter{position:fixed;z-index:10;left:50%;top:50%;transform:translate(-50%,-50%) scale(.7);width:min(90%,600px);padding:45px;background:var(--paper);border-radius:8px;box-shadow:0 25px 70px #501e324d;opacity:0;pointer-events:none;transition:.7s;text-align:center}.letter.show{opacity:1;transform:translate(-50%,-50%) scale(1);pointer-events:auto}.letter h1{color:var(--d)}.letter p{color:var(--i);font-size:19px;line-height:1.7}.flower{font-size:76px;margin:26px auto 18px;cursor:pointer;animation:pulse 2.2s infinite}.click-flower{color:var(--d);font-style:italic;margin-top:10px}@keyframes pulse{50%{transform:scale(1.08)}}
-.map-scene{z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;background:var(--p);opacity:0;pointer-events:none;transition:.7s}.map-scene.show{opacity:1;pointer-events:auto}.map-quote{max-width:800px;text-align:center;color:#8e5069;font-size:25px;line-height:1.5;margin-bottom:20px}.map-wrap{position:relative;width:min(92vw,900px);aspect-ratio:862/791;max-height:68vh;border:5px solid var(--paper);border-radius:28px;overflow:hidden;box-shadow:0 25px 70px #64283c33;background:#f4eadc}.map-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.pin{position:absolute;z-index:5;border:0;background:transparent;font-size:34px;cursor:pointer;filter:drop-shadow(0 4px 3px #6b304b55);transition:.2s;transform:translate(-50%,-100%)}.pin:hover{transform:translate(-50%,-100%) scale(1.18) translateY(-3px)}.spain{left:30.5%;top:61.5%}.lux{left:61.2%;top:38.2%}.route{position:absolute;z-index:4;left:30.5%;top:61.5%;width:38.6%;border-top:2px dashed #c58ba1;transform:rotate(-36.9deg);transform-origin:left center}.heart{position:absolute;z-index:7;left:44.5%;top:46.5%;width:56px;height:56px;border:0;border-radius:50%;background:#fffaf3;font-size:28px;cursor:pointer;box-shadow:0 8px 24px #7e435b38;animation:pulse 2.2s infinite}.preview{position:absolute;z-index:9;width:185px;padding:10px 10px 14px;background:#fffdf7;border-radius:7px;box-shadow:0 14px 35px #501e3238;opacity:0;pointer-events:none;transition:.2s;text-align:center}.preview.show{opacity:1}.preview img{width:100%;height:205px;object-fit:cover;border-radius:4px}.preview .empty{height:130px;display:grid;place-items:center;color:#b57a91}.sprev{left:32%;top:42%}.lprev{left:63%;top:12%}.country{margin-top:8px;color:#8e5069;font-weight:bold}.next{z-index:25;display:grid;place-items:center;background:var(--p);opacity:0;pointer-events:none;transition:.7s}.next.show{opacity:1;pointer-events:auto}.card{width:min(88vw,560px);padding:42px;background:var(--paper);border-radius:24px;text-align:center;color:var(--d);box-shadow:0 22px 60px #64283c38}
-@media(max-width:600px){.envelope{width:260px;height:175px}.flap{border-left-width:130px;border-right-width:130px}.letter{padding:28px 20px}.map-quote{font-size:19px}.map-wrap{width:94vw;max-height:62vh}.preview{width:135px}.preview img{height:145px}.spain{left:30.5%;top:61.5%}.lux{left:61.2%;top:38.2%}.route{left:30.5%;top:61.5%;width:38.6%;transform:rotate(-36.9deg)}.heart{width:48px;height:48px;left:44.5%;top:46.5%}}
-</style></head><body><div class="bg"></div>
-<div class="envelope-container" id="env" onclick="openLetter()"><div class="envelope"><div class="flap"></div><div class="seal">♥</div></div><div class="click-text">Haz clic para abrir 💌</div></div>
-<div class="letter" id="letter"><h1>Para ti ❤️</h1><p>Hoy es el Día del Lector 📖</p><p>Y como no quería que solo tú me dieras algo, hice esto.</p><p>Espero que te guste muchooo, me costó una pelea con ChatGPT xd</p><div class="flower" onclick="goMap(event)">🌸</div><div class="click-flower">click click click 🌹</div></div>
-<div class="scene map-scene" id="map"><div class="map-quote">Dos personas. El mismo momento. El mismo lugar.<br>Y una historia que todavía no sabíamos que iba a empezar.</div><div class="map-wrap"><img class="map-img" src="mapa-europa.png" alt="Mapa ilustrado de Europa"><div class="route"></div><button class="pin spain" id="spain">📍</button><button class="pin lux" id="lux">📍</button><button class="heart" id="heart">💗</button><div class="preview sprev" id="sprev"><div class="empty">♡</div><div class="country">España</div></div><div class="preview lprev" id="lprev"><img src="robert.jpg" alt="Robert"><div class="country">Luxemburgo</div></div></div></div>
-<div class="scene next" id="next"><div class="card"><div style="font-style:italic">siguiente pedacito ♡</div><h2>Nuestras fechas</h2><p>Aquí seguimos con el calendario 💗</p></div></div>
-<script>function openLetter(){env.classList.add('open');setTimeout(()=>letter.classList.add('show'),550)}function goMap(e){e.stopPropagation();letter.classList.remove('show');setTimeout(()=>map.classList.add('show'),650)}function hover(pin,pre){pin.onmouseenter=()=>pre.classList.add('show');pin.onmouseleave=()=>pre.classList.remove('show');pin.onclick=()=>pre.classList.toggle('show')}hover(spain,sprev);hover(lux,lprev);heart.onclick=()=>{map.classList.remove('show');setTimeout(()=>next.classList.add('show'),600)}</script></body></html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Para ti ❤️</title>
+<style>
+*{box-sizing:border-box}
+:root{--p:#f8c8dc;--d:#a65b77;--i:#593d47;--paper:#fffaf3}
+body{margin:0;min-height:100vh;overflow:hidden;font-family:Georgia,"Times New Roman",serif;background:var(--p)}
+.scene{position:fixed;inset:0}
+.bg{position:fixed;inset:0;background:radial-gradient(circle at 20% 20%,#ffffffbd,transparent 25%),radial-gradient(circle at 80% 80%,#ffffff8c,transparent 30%),var(--p)}
+
+.envelope-container{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;cursor:pointer;transition:.6s}
+.envelope-container.open{opacity:0;transform:translate(-50%,-50%) scale(.8);pointer-events:none}
+.envelope{position:relative;width:300px;height:200px;background:#fff8ef;border-radius:8px;box-shadow:0 20px 50px #64283c40}
+.flap{position:absolute;border-left:150px solid transparent;border-right:150px solid transparent;border-top:110px solid #f2b5cc;z-index:3}
+.envelope:before,.envelope:after{content:"";position:absolute;bottom:0;z-index:2}
+.envelope:before{border-left:150px solid transparent;border-right:150px solid #f7d6e2;border-top:100px solid transparent;border-bottom:100px solid transparent}
+.envelope:after{right:0;border-right:150px solid transparent;border-left:150px solid #f7c7d9;border-top:100px solid transparent;border-bottom:100px solid transparent}
+.seal{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:55px;height:55px;border-radius:50%;background:#d889a7;color:white;display:grid;place-items:center;font-size:25px;z-index:6}
+.click-text{text-align:center;margin-top:25px;color:#713d52}
+
+.letter{position:fixed;z-index:10;left:50%;top:50%;transform:translate(-50%,-50%) scale(.7);width:min(90%,600px);padding:45px;background:var(--paper);border-radius:8px;box-shadow:0 25px 70px #501e324d;opacity:0;pointer-events:none;transition:.7s;text-align:center}
+.letter.show{opacity:1;transform:translate(-50%,-50%) scale(1);pointer-events:auto}
+.letter h1{color:var(--d)}.letter p{color:var(--i);font-size:19px;line-height:1.7}
+.flower{font-size:76px;margin:26px auto 18px;cursor:pointer;animation:pulse 2.2s infinite}
+.click-flower{color:var(--d);font-style:italic;margin-top:10px}
+@keyframes pulse{50%{transform:scale(1.08)}}
+
+.map-scene{z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;background:var(--p);opacity:0;pointer-events:none;transition:.7s}
+.map-scene.show{opacity:1;pointer-events:auto}
+.map-quote{max-width:800px;text-align:center;color:#8e5069;font-size:25px;line-height:1.5;margin-bottom:20px}
+.map-wrap{position:relative;width:min(92vw,900px);aspect-ratio:862/791;max-height:68vh;border:5px solid var(--paper);border-radius:28px;overflow:hidden;box-shadow:0 25px 70px #64283c33;background:#f4eadc}
+.map-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pin{position:absolute;z-index:5;border:0;background:transparent;font-size:34px;cursor:pointer;filter:drop-shadow(0 4px 3px #6b304b55);transition:.2s;transform:translate(-50%,-100%)}
+.pin:hover{transform:translate(-50%,-100%) scale(1.18) translateY(-3px)}
+.spain{left:30.5%;top:61.5%}.lux{left:61.2%;top:38.2%}
+.route{position:absolute;z-index:4;left:30.5%;top:61.5%;width:38.6%;border-top:2px dashed #c58ba1;transform:rotate(-36.9deg);transform-origin:left}
+.heart{position:absolute;z-index:7;left:44.5%;top:46.5%;width:56px;height:56px;border:0;border-radius:50%;background:#fffaf3;font-size:28px;cursor:pointer;box-shadow:0 8px 24px #7e435b38;animation:pulse 2.2s infinite}
+.preview{position:absolute;z-index:9;width:185px;padding:10px 10px 14px;background:#fffdf7;border-radius:7px;box-shadow:0 14px 35px #501e3238;opacity:0;pointer-events:none;transition:.2s;text-align:center}
+.preview.show{opacity:1}
+.preview img{width:100%;height:205px;object-fit:cover;border-radius:4px}
+.preview .empty{height:130px;display:grid;place-items:center;color:#b57a91}
+.sprev{left:32%;top:42%}.lprev{left:63%;top:12%}
+.country{margin-top:8px;color:#8e5069;font-weight:bold}
+
+.music{z-index:25;display:grid;place-items:center;background:radial-gradient(circle at 25% 20%,rgba(255,255,255,.7),transparent 28%),var(--p);opacity:0;pointer-events:none;transition:.7s}
+.music.show{opacity:1;pointer-events:auto}
+.music-card{width:min(90vw,620px);padding:38px;background:var(--paper);border-radius:26px;text-align:center;box-shadow:0 22px 60px #64283c38;color:var(--d)}
+.music-card h2{margin:0 0 8px;font-size:30px}
+.music-card p{margin:0 0 22px;color:var(--i);font-size:18px;line-height:1.55}
+.qr-wrap{width:230px;height:230px;margin:0 auto 20px;padding:14px;background:white;border-radius:18px;box-shadow:0 12px 28px #64283c22}
+.qr-wrap img{width:100%;height:100%;display:block;border-radius:8px}
+.spotify-btn{display:inline-block;padding:13px 22px;border-radius:999px;background:#e7a9c1;color:white;text-decoration:none;font-weight:bold;box-shadow:0 8px 20px #8d536a35;transition:.2s}
+.spotify-btn:hover{transform:translateY(-2px) scale(1.03)}
+.music-note{font-size:34px;margin-bottom:10px}
+
+@media(max-width:600px){
+  .envelope{width:260px;height:175px}.flap{border-left-width:130px;border-right-width:130px}
+  .letter{padding:28px 20px}.map-quote{font-size:19px}
+  .map-wrap{width:94vw;max-height:62vh}.preview{width:135px}.preview img{height:145px}
+  .spain{left:30.5%;top:61.5%}.lux{left:61.2%;top:38.2%}
+  .route{left:30.5%;top:61.5%;width:38.6%;transform:rotate(-36.9deg)}
+  .heart{width:48px;height:48px;left:44.5%;top:46.5%}
+  .music-card{padding:28px 20px}.qr-wrap{width:200px;height:200px}
+}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<div class="envelope-container" id="env" onclick="openLetter()">
+  <div class="envelope"><div class="flap"></div><div class="seal">♥</div></div>
+  <div class="click-text">Haz clic para abrir 💌</div>
+</div>
+
+<div class="letter" id="letter">
+  <h1>Para ti ❤️</h1>
+  <p>Hoy es el Día del Lector 📖</p>
+  <p>Y como no quería que solo tú me dieras algo, hice esto.</p>
+  <p>Espero que te guste muchooo, me costó una pelea con ChatGPT xd</p>
+  <div class="flower" onclick="goMap(event)">🌸</div>
+  <div class="click-flower">click click click 🌹</div>
+</div>
+
+<div class="scene map-scene" id="map">
+  <div class="map-quote">Dos personas. El mismo momento. El mismo lugar.<br>Y una historia que todavía no sabíamos que iba a empezar.</div>
+  <div class="map-wrap">
+    <img class="map-img" src="mapa-europa.png" alt="Mapa ilustrado de Europa">
+    <div class="route"></div>
+    <button class="pin spain" id="spain" aria-label="España">📍</button>
+    <button class="pin lux" id="lux" aria-label="Luxemburgo">📍</button>
+    <button class="heart" id="heart" aria-label="Siguiente">💗</button>
+
+    <div class="preview sprev" id="sprev">
+      <div class="empty">♡</div>
+      <div class="country">España</div>
+    </div>
+
+    <div class="preview lprev" id="lprev">
+      <img src="robert.jpg" alt="Robert">
+      <div class="country">Luxemburgo</div>
+    </div>
+  </div>
+</div>
+
+<div class="scene music" id="music">
+  <div class="music-card">
+    <div class="music-note">🎧</div>
+    <h2>Nuestra música</h2>
+    <p>Hice una playlist para ti 💗<br>Escanéala o tócala para escucharla.</p>
+
+    <div class="qr-wrap">
+      <img src="data:image/png;base64,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" alt="Código QR de la playlist de Spotify">
+    </div>
+
+    <a class="spotify-btn" href="https://open.spotify.com/playlist/3ZjIvjCqLCP7KpJly3cuCB?si=9f423370f1d64dc4&pt=cc0118e0fc38c534d0bdbd6df4bb535c" target="_blank" rel="noopener noreferrer">
+      Abrir playlist en Spotify ♫
+    </a>
+  </div>
+</div>
+
+<script>
+function openLetter(){
+  env.classList.add('open');
+  setTimeout(()=>letter.classList.add('show'),550)
+}
+function goMap(e){
+  e.stopPropagation();
+  letter.classList.remove('show');
+  setTimeout(()=>map.classList.add('show'),650)
+}
+function hover(pin,pre){
+  pin.onmouseenter=()=>pre.classList.add('show');
+  pin.onmouseleave=()=>pre.classList.remove('show');
+  pin.onclick=()=>pre.classList.toggle('show')
+}
+hover(spain,sprev);
+hover(lux,lprev);
+
+heart.onclick=()=>{
+  map.classList.remove('show');
+  setTimeout(()=>music.classList.add('show'),600)
+}
+</script>
+</body>
+</html>
